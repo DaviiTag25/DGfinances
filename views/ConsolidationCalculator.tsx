@@ -193,27 +193,46 @@ export const ConsolidationCalculator: React.FC<CalculatorProps> = ({ onBack }) =
 
           <Card className="border border-white/5 bg-dg-800/30">
             <h4 className="text-white font-semibold flex items-center gap-2 mb-3">
-              <TrendingDown size={18} className="text-indigo-500"/>
-              Korzyści z Konsolidacji
+              <RefreshCw size={18} className="text-indigo-500"/>
+              Kredyt Konsolidacyjny - Informacje
             </h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li className="flex items-start gap-2">
-                <span className="text-indigo-500 mt-1">✓</span>
-                <span>Jedna niższa rata zamiast wielu wysokich</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-indigo-500 mt-1">✓</span>
-                <span>Lepsze oprocentowanie niż przy wielu kredytach</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-indigo-500 mt-1">✓</span>
-                <span>Prostsza kontrola nad budżetem domowym</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-indigo-500 mt-1">✓</span>
-                <span>Możliwość przedłużenia okresu spłaty</span>
-              </li>
-            </ul>
+            <div className="space-y-3 text-sm">
+              <div>
+                <p className="text-indigo-400 font-semibold mb-1">Czym jest konsolidacja kredytów?</p>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Połączenie wszystkich Twoich zobowiązań (kredyty, karty, pożyczki) w jeden nowy kredyt z niższą ratą miesięczną i często lepszym oprocentowaniem.
+                </p>
+              </div>
+              <div className="border-t border-white/5 pt-3">
+                <p className="text-indigo-400 font-semibold mb-2">Warunki kredytu:</p>
+                <ul className="space-y-1 text-xs text-gray-400">
+                  <li className="flex items-start gap-2">
+                    <span className="text-indigo-500 mt-0.5">•</span>
+                    <span><strong>Kwota:</strong> Do 200 000 PLN (suma wszystkich długów)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-indigo-500 mt-0.5">•</span>
+                    <span><strong>Okres:</strong> Do 120 miesięcy (wydłużenie okresu = niższa rata)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-indigo-500 mt-0.5">•</span>
+                    <span><strong>Oprocentowanie:</strong> 5-12%, często niższe niż średnia obecnych</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-indigo-500 mt-0.5">•</span>
+                    <span><strong>Co łączymy:</strong> Kredyty, karty, pożyczki, limity</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-indigo-500 mt-0.5">•</span>
+                    <span><strong>Korzyści:</strong> Jedna rata, niższe obciążenie, lepszy budżet</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-indigo-500 mt-0.5">•</span>
+                    <span><strong>Dodatkowa gotówka:</strong> Możliwość dołączenia nowych środków</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </Card>
           
           <ContactForm context={`Konsolidacja ${loans.length} kredytów: ${result.totalDebt.toLocaleString()} PLN`} />

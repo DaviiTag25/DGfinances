@@ -148,6 +148,50 @@ export const MortgageCalculator: React.FC<CalculatorProps> = ({ onBack }) => {
             </div>
           </Card>
 
+          <Card className="border border-white/5 bg-dg-800/30">
+            <h4 className="text-white font-semibold flex items-center gap-2 mb-3">
+              <Home size={18} className="text-blue-500"/>
+              Kredyt Hipoteczny - Informacje
+            </h4>
+            <div className="space-y-3 text-sm">
+              <div>
+                <p className="text-blue-400 font-semibold mb-1">Czym jest kredyt hipoteczny?</p>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Długoterminowe finansowanie zakupu nieruchomości zabezpieczone hipoteką na kupowanej lub innej nieruchomości. Najczęściej wykorzystywany do zakupu mieszkania lub domu.
+                </p>
+              </div>
+              <div className="border-t border-white/5 pt-3">
+                <p className="text-blue-400 font-semibold mb-2">Warunki kredytu:</p>
+                <ul className="space-y-1 text-xs text-gray-400">
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-500 mt-0.5">•</span>
+                    <span><strong>Wkład własny:</strong> Minimum 10-20% wartości nieruchomości</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-500 mt-0.5">•</span>
+                    <span><strong>Okres:</strong> Od 5 do 35 lat</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-500 mt-0.5">•</span>
+                    <span><strong>Oprocentowanie:</strong> Zmienne lub stałe (WIBOR + marża)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-500 mt-0.5">•</span>
+                    <span><strong>Zabezpieczenie:</strong> Hipoteka na nieruchomości</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-500 mt-0.5">•</span>
+                    <span><strong>Zdolność:</strong> Weryfikacja dochodów i zobowiązań</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-500 mt-0.5">•</span>
+                    <span><strong>Dodatkowe koszty:</strong> Prowizja, wycena, ubezpieczenie</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </Card>
+
           <ContactForm context={`Hipoteka: ${loanAmount.toLocaleString()} PLN, ${years} lat`} />
         </div>
 

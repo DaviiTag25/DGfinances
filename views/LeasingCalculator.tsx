@@ -190,6 +190,50 @@ export const LeasingCalculator: React.FC<CalculatorProps> = ({ onBack }) => {
             </div>
           </Card>
 
+          <Card className="border border-white/5 bg-dg-800/30">
+            <h4 className="text-white font-semibold flex items-center gap-2 mb-3">
+              <Briefcase size={18} className="text-green-500"/>
+              Leasing - Informacje
+            </h4>
+            <div className="space-y-3 text-sm">
+              <div>
+                <p className="text-green-400 font-semibold mb-1">Czym jest leasing?</p>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Forma finansowania pozwalająca na użytkowanie środka trwałego (pojazdu, maszyny) bez konieczności jego zakupu. Idealny dla przedsiębiorców dzięki korzyściom podatkowym.
+                </p>
+              </div>
+              <div className="border-t border-white/5 pt-3">
+                <p className="text-green-400 font-semibold mb-2">Warunki leasingu:</p>
+                <ul className="space-y-1 text-xs text-gray-400">
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-500 mt-0.5">•</span>
+                    <span><strong>Opłata wstępna:</strong> Zazwyczaj 10-30% wartości przedmiotu</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-500 mt-0.5">•</span>
+                    <span><strong>Okres:</strong> Od 24 do 60 miesięcy</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-500 mt-0.5">•</span>
+                    <span><strong>Wykup:</strong> 1-20% wartości początkowej po zakończeniu</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-500 mt-0.5">•</span>
+                    <span><strong>Korzyści podatkowe:</strong> Raty w koszty + odliczenie VAT</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-500 mt-0.5">•</span>
+                    <span><strong>Własność:</strong> U leasingodawcy do wykupu końcowego</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-500 mt-0.5">•</span>
+                    <span><strong>Dla kogo:</strong> Głównie dla firm (korzyści VAT i CIT)</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </Card>
+
            <ContactForm context={`Leasing: ${price} PLN (${isInputNet ? 'Netto' : 'Brutto'}), ${period} msc`} />
         </div>
 

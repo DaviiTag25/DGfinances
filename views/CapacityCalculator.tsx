@@ -108,6 +108,50 @@ export const CapacityCalculator: React.FC<CalculatorProps> = ({ onBack }) => {
               </div>
             </div>
           </Card>
+
+          <Card className="border border-white/5 bg-dg-800/30">
+            <h4 className="text-white font-semibold flex items-center gap-2 mb-3">
+              <TrendingUp size={18} className="text-purple-500"/>
+              Zdolność Kredytowa - Informacje
+            </h4>
+            <div className="space-y-3 text-sm">
+              <div>
+                <p className="text-purple-400 font-semibold mb-1">Czym jest zdolność kredytowa?</p>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  To maksymalna kwota kredytu, jaką możesz otrzymać przy Twoich dochodach i wydatkach. Bank ocenia, czy stać Cię na spłatę raty kredytu.
+                </p>
+              </div>
+              <div className="border-t border-white/5 pt-3">
+                <p className="text-purple-400 font-semibold mb-2">Jak bank ocenia zdolność:</p>
+                <ul className="space-y-1 text-xs text-gray-400">
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-500 mt-0.5">•</span>
+                    <span><strong>Dochody:</strong> Wynagrodzenie netto, działalność, inne źródła</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-500 mt-0.5">•</span>
+                    <span><strong>Wydatki:</strong> Koszty utrzymania, zobowiązania, limity</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-500 mt-0.5">•</span>
+                    <span><strong>Wskaźnik DTI:</strong> Nie więcej niż 50-65% dochodu na raty</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-500 mt-0.5">•</span>
+                    <span><strong>Minimum wolne:</strong> Musi pozostać min. 1200-1800 PLN/os</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-500 mt-0.5">•</span>
+                    <span><strong>BIK i KRD:</strong> Historia kredytowa i brak zaległości</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-500 mt-0.5">•</span>
+                    <span><strong>Stabilność:</strong> Stały dochód zwiększa zdolność</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </Card>
           
            <ContactForm context={`Zdolność: dochód ${income}, gospodarstwo ${householdSize} os.`} />
         </div>

@@ -105,6 +105,50 @@ export const CarLoanCalculator: React.FC<CalculatorProps> = ({ onBack }) => {
             </div>
           </Card>
           
+          <Card className="border border-white/5 bg-dg-800/30">
+            <h4 className="text-white font-semibold flex items-center gap-2 mb-3">
+              <Car size={18} className="text-orange-500"/>
+              Kredyt Samochodowy - Informacje
+            </h4>
+            <div className="space-y-3 text-sm">
+              <div>
+                <p className="text-orange-400 font-semibold mb-1">Czym jest kredyt samochodowy?</p>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Kredyt przeznaczony specjalnie na zakup pojazdu - nowego lub używanego. Szybsza procedura niż kredyt hipoteczny, często bez zabezpieczeń dodatkowych.
+                </p>
+              </div>
+              <div className="border-t border-white/5 pt-3">
+                <p className="text-orange-400 font-semibold mb-2">Warunki kredytu:</p>
+                <ul className="space-y-1 text-xs text-gray-400">
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-500 mt-0.5">•</span>
+                    <span><strong>Kwota:</strong> Od 15 000 do 400 000 PLN</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-500 mt-0.5">•</span>
+                    <span><strong>Wpłata własna:</strong> Opcjonalna, zazwyczaj 10-20%</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-500 mt-0.5">•</span>
+                    <span><strong>Okres:</strong> Od 12 do 120 miesięcy (najczęściej 3-7 lat)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-500 mt-0.5">•</span>
+                    <span><strong>Oprocentowanie:</strong> 7-12% w zależności od banku</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-500 mt-0.5">•</span>
+                    <span><strong>Zabezpieczenie:</strong> Cesja praw z polisy OC/AC pojazdu</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-500 mt-0.5">•</span>
+                    <span><strong>Decyzja:</strong> Często w ciągu 24-48 godzin</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </Card>
+
           <ContactForm context={`Auto: ${price} PLN, rocznik ${age}`} />
         </div>
 

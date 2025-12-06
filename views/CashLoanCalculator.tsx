@@ -95,27 +95,46 @@ export const CashLoanCalculator: React.FC<CalculatorProps> = ({ onBack }) => {
 
           <Card className="border border-white/5 bg-dg-800/30">
             <h4 className="text-white font-semibold flex items-center gap-2 mb-3">
-              <TrendingUp size={18} className="text-emerald-500"/>
-              Zalety Kredytu Gotówkowego
+              <Wallet size={18} className="text-emerald-500"/>
+              Kredyt Gotówkowy - Informacje
             </h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li className="flex items-start gap-2">
-                <span className="text-emerald-500 mt-1">✓</span>
-                <span>Dowolny cel wydatkowania środków</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-emerald-500 mt-1">✓</span>
-                <span>Brak konieczności zabezpieczeń hipotecznych</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-emerald-500 mt-1">✓</span>
-                <span>Szybka procedura - decyzja w 24h</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-emerald-500 mt-1">✓</span>
-                <span>Możliwość wcześniejszej spłaty bez prowizji</span>
-              </li>
-            </ul>
+            <div className="space-y-3 text-sm">
+              <div>
+                <p className="text-emerald-400 font-semibold mb-1">Czym jest kredyt gotówkowy?</p>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Uniwersalny kredyt bez określonego celu - środki możesz przeznaczyć na dowolny wydatek. Nie wymaga zabezpieczeń, szybka decyzja kredytowa.
+                </p>
+              </div>
+              <div className="border-t border-white/5 pt-3">
+                <p className="text-emerald-400 font-semibold mb-2">Warunki kredytu:</p>
+                <ul className="space-y-1 text-xs text-gray-400">
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-500 mt-0.5">•</span>
+                    <span><strong>Kwota:</strong> Od 5 000 do 200 000 PLN</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-500 mt-0.5">•</span>
+                    <span><strong>Okres:</strong> Od 12 do 120 miesięcy (1-10 lat)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-500 mt-0.5">•</span>
+                    <span><strong>Oprocentowanie:</strong> 5-15% w zależności od zdolności</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-500 mt-0.5">•</span>
+                    <span><strong>Zabezpieczenie:</strong> Brak (kredyt niezabezpieczony)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-500 mt-0.5">•</span>
+                    <span><strong>Cel kredytu:</strong> Dowolny - nie musisz go określać</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-emerald-500 mt-0.5">•</span>
+                    <span><strong>Decyzja:</strong> Online w 15 minut, wypłata w 24h</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </Card>
           
           <ContactForm context={`Kredyt gotówkowy: ${amount.toLocaleString()} PLN na ${months} msc`} />
