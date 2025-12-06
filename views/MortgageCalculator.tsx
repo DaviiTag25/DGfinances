@@ -71,27 +71,36 @@ export const MortgageCalculator: React.FC<CalculatorProps> = ({ onBack }) => {
 
   return (
     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 pb-12">
-      {/* Header */}
-      <div className="flex items-center gap-4 mb-8">
+      {/* Back Button */}
+      <div className="mb-6">
         <Button variant="ghost" onClick={onBack} className="!px-3 hover:bg-white/5">
           <ArrowLeft size={24} className="text-gray-300" />
         </Button>
-        <div>
-          <h2 className="text-3xl font-bold text-white tracking-tight">Kredyt Hipoteczny</h2>
-          <p className="text-gray-400">Symulacja rat i kosztów zakupu nieruchomości</p>
-        </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Left Column: Inputs */}
-        <div className="lg:col-span-7 space-y-6">
+      {/* Header Section - Tytuł i Podtytuł */}
+      <div className="text-center mb-8">
+        <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 mb-3 tracking-tight">
+          Kredyt Hipoteczny
+        </h1>
+        <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          Sfinansuj zakup wymarzonego mieszkania lub domu. Oblicz ratę i sprawdź szczegóły oferty.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* LEFT COLUMN - Opis i Warunki (2/3 szerokości) */}
+        <div className="lg:col-span-2 space-y-6">
+          
+          {/* Kalkulator - Parametry */}
           <Card className="border-t-4 border-t-blue-500">
             <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
               <Home size={20} className="text-blue-500" />
-              Parametry Nieruchomości
+              Oblicz swoją ratę
             </h3>
             
-            <div className="space-y-8">
+            <div className="space-y-6">
               <Slider 
                 label="Wartość nieruchomości"
                 value={amount}
@@ -112,156 +121,160 @@ export const MortgageCalculator: React.FC<CalculatorProps> = ({ onBack }) => {
                 onChange={(e) => setOwnContribution(Number(e.target.value))}
               />
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-dg-900/50 p-4 rounded-xl border border-white/5">
-                      <div className="flex items-center justify-between mb-2">
-                         <label className="text-sm font-medium text-gray-400">Okres kredytowania</label>
-                         <Calendar size={16} className="text-blue-500" />
-                      </div>
-                      <Slider 
-                        label=""
-                        value={years}
-                        min={5}
-                        max={35}
-                        step={1}
-                        suffix="Lat"
-                        onChange={(e) => setYears(Number(e.target.value))}
-                      />
-                  </div>
+              <div className="grid grid-cols-2 gap-4">
+                  <Slider 
+                    label="Okres kredytowania (lat)"
+                    value={years}
+                    min={5}
+                    max={35}
+                    step={1}
+                    suffix="lat"
+                    onChange={(e) => setYears(Number(e.target.value))}
+                  />
                   
-                  <div className="bg-dg-900/50 p-4 rounded-xl border border-white/5">
-                      <div className="flex items-center justify-between mb-4">
-                         <label className="text-sm font-medium text-gray-400">Oprocentowanie</label>
-                         <Percent size={16} className="text-blue-500" />
-                      </div>
-                      <Input 
-                        label="" 
-                        type="number" 
-                        step="0.1"
-                        value={rate}
-                        onChange={(e) => setRate(Number(e.target.value))}
-                        suffix="%"
-                        className="!mb-0"
-                      />
+                  <div>
+                    <label className="text-sm font-medium text-gray-400 mb-2 block">Oprocentowanie (%)</label>
+                    <Input 
+                      label="" 
+                      type="number" 
+                      step="0.1"
+                      value={rate}
+                      onChange={(e) => setRate(Number(e.target.value))}
+                      suffix="%"
+                      className="!mb-0"
+                    />
                   </div>
               </div>
             </div>
           </Card>
 
-          <Card className="border border-white/5 bg-dg-800/30">
-            <h4 className="text-white font-semibold flex items-center gap-2 mb-3">
-              <Home size={18} className="text-blue-500"/>
-              Kredyt Hipoteczny - Informacje
-            </h4>
-            <div className="space-y-3 text-sm">
-              <div>
-                <p className="text-blue-400 font-semibold mb-1">Czym jest kredyt hipoteczny?</p>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Długoterminowe finansowanie zakupu nieruchomości zabezpieczone hipoteką na kupowanej lub innej nieruchomości. Najczęściej wykorzystywany do zakupu mieszkania lub domu.
-                </p>
+          {/* Opis Oferty */}
+          <Card className="border border-blue-500/30 bg-gradient-to-br from-dg-800 to-blue-900/10">
+            <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+              <Home size={24} className="text-blue-500"/>
+              O kredycie hipotecznym
+            </h3>
+            <p className="text-gray-300 leading-relaxed mb-6">
+              Kredyt hipoteczny to długoterminowe finansowanie zakupu nieruchomości, zabezpieczone hipoteką. 
+              Dzięki niemu możesz stać się właścicielem własnego mieszkania lub domu, płacąc wygodne miesięczne raty 
+              rozłożone nawet na 35 lat. To najbardziej popularny sposób finansowania nieruchomości w Polsce.
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              <div className="bg-dg-900/50 p-4 rounded-lg border border-white/10">
+                <div className="text-blue-400 font-bold text-2xl mb-1">10-20%</div>
+                <div className="text-xs text-gray-400">Minimalny wkład własny</div>
               </div>
-              <div className="border-t border-white/5 pt-3">
-                <p className="text-blue-400 font-semibold mb-2">Warunki kredytu:</p>
-                <ul className="space-y-1 text-xs text-gray-400">
+              <div className="bg-dg-900/50 p-4 rounded-lg border border-white/10">
+                <div className="text-blue-400 font-bold text-2xl mb-1">5-35 lat</div>
+                <div className="text-xs text-gray-400">Okres kredytowania</div>
+              </div>
+              <div className="bg-dg-900/50 p-4 rounded-lg border border-white/10">
+                <div className="text-blue-400 font-bold text-2xl mb-1">od 6%</div>
+                <div className="text-xs text-gray-400">Oprocentowanie rocznie</div>
+              </div>
+            </div>
+          </Card>
+
+          {/* Warunki Kredytu */}
+          <Card className="border border-white/10">
+            <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <Wallet size={20} className="text-blue-500"/>
+              Warunki i wymagania
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="text-blue-400 font-semibold mb-3 text-sm">✓ Co zyskujesz:</h4>
+                <ul className="space-y-2 text-sm text-gray-300">
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-500 mt-0.5">•</span>
-                    <span><strong>Wkład własny:</strong> Minimum 10-20% wartości nieruchomości</span>
+                    <span className="text-blue-500">•</span>
+                    <span>Własne mieszkanie bez konieczności płacenia pełnej kwoty od razu</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-500 mt-0.5">•</span>
-                    <span><strong>Okres:</strong> Od 5 do 35 lat</span>
+                    <span className="text-blue-500">•</span>
+                    <span>Długi okres spłaty - niskie miesięczne raty</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-500 mt-0.5">•</span>
-                    <span><strong>Oprocentowanie:</strong> Zmienne lub stałe (WIBOR + marża)</span>
+                    <span className="text-blue-500">•</span>
+                    <span>Możliwość wcześniejszej spłaty bez dodatkowych kosztów</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-500 mt-0.5">•</span>
-                    <span><strong>Zabezpieczenie:</strong> Hipoteka na nieruchomości</span>
+                    <span className="text-blue-500">•</span>
+                    <span>Konkurencyjne oprocentowanie - najniższe ze wszystkich kredytów</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-blue-400 font-semibold mb-3 text-sm">📋 Wymagane dokumenty:</h4>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-500">•</span>
+                    <span>Zaświadczenie o dochodach (PIT, zaświadczenie z pracy)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-500 mt-0.5">•</span>
-                    <span><strong>Zdolność:</strong> Weryfikacja dochodów i zobowiązań</span>
+                    <span className="text-blue-500">•</span>
+                    <span>Wycena nieruchomości wykonana przez rzeczoznawcę</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-blue-500 mt-0.5">•</span>
-                    <span><strong>Dodatkowe koszty:</strong> Prowizja, wycena, ubezpieczenie</span>
+                    <span className="text-blue-500">•</span>
+                    <span>Dokument tożsamości i potwierdzenie adresu</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-500">•</span>
+                    <span>Akt notarialny zakupu (po pozytywnej decyzji)</span>
                   </li>
                 </ul>
               </div>
             </div>
+
+            <div className="mt-6 p-4 bg-blue-500/10 border border-blue-500/20 rounded-lg">
+              <p className="text-sm text-blue-300">
+                <strong>Ważne:</strong> Minimalna zdolność kredytowa i stabilne źródło dochodu są kluczowe dla uzyskania kredytu hipotecznego. 
+                Bank weryfikuje Twoją historię kredytową w BIK.
+              </p>
+            </div>
           </Card>
 
-          <ContactForm context={`Hipoteka: ${loanAmount.toLocaleString()} PLN, ${years} lat`} />
         </div>
 
-        {/* Right Column: Results */}
-        <div className="lg:col-span-5 space-y-6">
-          <Card className="bg-gradient-to-br from-dg-800 to-blue-900/20 border-blue-500/30 sticky top-6 shadow-2xl shadow-blue-900/10">
-            <div className="text-center pb-6 border-b border-white/10">
-                <h3 className="text-blue-400 text-xs font-bold uppercase tracking-widest mb-2">Twoja miesięczna rata</h3>
-                <div className="text-5xl font-extrabold text-white tracking-tight">
-                  {monthlyPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })} <span className="text-2xl text-gray-400 font-normal">PLN</span>
-                </div>
-                <div className="mt-4 flex justify-center gap-3">
-                    <div className="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs text-blue-300">
-                        Kwota kredytu: {loanAmount.toLocaleString()} PLN
-                    </div>
-                     <div className={`px-3 py-1 rounded-full text-xs border ${ltv > 80 ? 'bg-yellow-500/10 border-yellow-500/20 text-yellow-300' : 'bg-green-500/10 border-green-500/20 text-green-300'}`}>
-                        LTV: {ltv.toFixed(1)}%
-                    </div>
-                </div>
-            </div>
-
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-4 py-6">
-                <div className="p-3 bg-dg-900/50 rounded-xl border border-white/5">
-                    <p className="text-xs text-gray-500 mb-1">Koszt odsetek</p>
-                    <p className="text-lg font-bold text-indigo-400">{totalInterest.toLocaleString(undefined, { maximumFractionDigits: 0 })} PLN</p>
-                </div>
-                <div className="p-3 bg-dg-900/50 rounded-xl border border-white/5">
-                    <p className="text-xs text-gray-500 mb-1">Koszt całkowity</p>
-                    <p className="text-lg font-bold text-white">{totalCost.toLocaleString(undefined, { maximumFractionDigits: 0 })} PLN</p>
-                </div>
-            </div>
-
-            {/* Chart */}
-            <div className="h-[200px] w-full relative">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={chartData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={55}
-                    outerRadius={75}
-                    paddingAngle={4}
-                    dataKey="value"
-                    stroke="none"
-                  >
-                    {chartData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}
-                  </Pie>
-                  <Tooltip 
-                    contentStyle={{ backgroundColor: '#0f172a', borderColor: '#334155', borderRadius: '12px', color: '#fff', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.5)' }}
-                    itemStyle={{ color: '#fff', fontSize: '12px' }}
-                    formatter={(value: number) => `${value.toLocaleString()} PLN`}
-                  />
-                  <Legend verticalAlign="bottom" height={36} iconType="circle" wrapperStyle={{fontSize: '12px', paddingTop: '10px'}}/>
-                </PieChart>
-              </ResponsiveContainer>
-              
-              {/* Center Icon */}
-              <div className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-gray-600 pointer-events-none">
-                  <DollarSign size={24} />
-              </div>
-            </div>
+        {/* RIGHT COLUMN - Widget z Ratą + Formularz (1/3 szerokości - sticky) */}
+        <div className="lg:col-span-1">
+          <div className="sticky top-6 space-y-6">
             
-            <Button fullWidth variant="primary" onClick={() => setIsScheduleOpen(true)} className="mt-2">
-                <Table className="mr-2" size={18} /> Pokaż Harmonogram
-            </Button>
-          </Card>
+            {/* Widget z obliczoną ratą */}
+            <Card className="bg-gradient-to-br from-blue-600 to-blue-800 border-blue-500 shadow-2xl shadow-blue-900/30">
+              <div className="text-center py-6">
+                <p className="text-blue-200 text-xs font-bold uppercase tracking-widest mb-3">Twoja miesięczna rata</p>
+                <div className="text-5xl font-extrabold text-white tracking-tight mb-4">
+                  {monthlyPayment.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                  <span className="text-xl text-blue-200 font-normal block mt-1">PLN</span>
+                </div>
+                
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm bg-blue-900/30 px-4 py-2 rounded-lg">
+                    <span className="text-blue-200">Kwota kredytu:</span>
+                    <span className="text-white font-bold">{loanAmount.toLocaleString()} PLN</span>
+                  </div>
+                  <div className="flex justify-between text-sm bg-blue-900/30 px-4 py-2 rounded-lg">
+                    <span className="text-blue-200">LTV:</span>
+                    <span className={`font-bold ${ltv > 80 ? 'text-yellow-300' : 'text-green-300'}`}>{ltv.toFixed(1)}%</span>
+                  </div>
+                  <div className="flex justify-between text-sm bg-blue-900/30 px-4 py-2 rounded-lg">
+                    <span className="text-blue-200">Całkowity koszt:</span>
+                    <span className="text-white font-bold">{totalCost.toLocaleString(undefined, { maximumFractionDigits: 0 })} PLN</span>
+                  </div>
+                </div>
+
+                <Button fullWidth variant="outline" onClick={() => setIsScheduleOpen(true)} className="mt-4 !bg-white !text-blue-600 hover:!bg-blue-50 border-none font-bold">
+                  <Table className="mr-2" size={18} /> Zobacz harmonogram
+                </Button>
+              </div>
+            </Card>
+
+            {/* Formularz Kontaktowy */}
+            <ContactForm context={`Hipoteka: ${loanAmount.toLocaleString()} PLN, ${years} lat`} />
+            
+          </div>
         </div>
       </div>
 
