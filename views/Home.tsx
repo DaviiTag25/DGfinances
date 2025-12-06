@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from '../types';
-import { Home as HomeIcon, Key, TrendingUp, Car } from 'lucide-react';
+import { Home as HomeIcon, Key, TrendingUp, Car, Wallet, RefreshCw } from 'lucide-react';
 
 interface HomeProps {
   onNavigate: (view: View) => void;
@@ -39,6 +39,22 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       icon: Car,
       color: "orange",
       badge: "Nowość"
+    },
+    {
+      id: View.CASH_LOAN,
+      title: "Kredyt Gotówkowy",
+      desc: "Pieniądze na dowolny cel bez zabezpieczeń.",
+      icon: Wallet,
+      color: "emerald",
+      badge: "Szybko"
+    },
+    {
+      id: View.CONSOLIDATION,
+      title: "Konsolidacja",
+      desc: "Połącz wszystkie zobowiązania w jedną niższą ratę.",
+      icon: RefreshCw,
+      color: "indigo",
+      badge: "Oszczędzaj"
     }
   ];
 
@@ -48,6 +64,8 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       green: 'bg-green-500/10 text-green-500 border-green-500/20 group-hover:border-green-500 group-hover:shadow-green-900/20',
       purple: 'bg-purple-500/10 text-purple-500 border-purple-500/20 group-hover:border-purple-500 group-hover:shadow-purple-900/20',
       orange: 'bg-orange-500/10 text-orange-500 border-orange-500/20 group-hover:border-orange-500 group-hover:shadow-orange-900/20',
+      emerald: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20 group-hover:border-emerald-500 group-hover:shadow-emerald-900/20',
+      indigo: 'bg-indigo-500/10 text-indigo-500 border-indigo-500/20 group-hover:border-indigo-500 group-hover:shadow-indigo-900/20',
     };
     return map[color];
   };
@@ -64,7 +82,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {features.map((feature, idx) => (
           <button
             key={feature.id}

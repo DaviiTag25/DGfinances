@@ -3,7 +3,9 @@ export enum View {
   MORTGAGE = 'MORTGAGE',
   LEASING = 'LEASING',
   CAPACITY = 'CAPACITY',
-  AUTO = 'AUTO'
+  AUTO = 'AUTO',
+  CASH_LOAN = 'CASH_LOAN',
+  CONSOLIDATION = 'CONSOLIDATION'
 }
 
 export interface CalculatorProps {

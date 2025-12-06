@@ -5,6 +5,8 @@ import { MortgageCalculator } from './views/MortgageCalculator';
 import { LeasingCalculator } from './views/LeasingCalculator';
 import { CapacityCalculator } from './views/CapacityCalculator';
 import { CarLoanCalculator } from './views/CarLoanCalculator';
+import { CashLoanCalculator } from './views/CashLoanCalculator';
+import { ConsolidationCalculator } from './views/ConsolidationCalculator';
 import { UsageGuard } from './components/UsageGuard';
 import { Layers, Mail, Phone } from 'lucide-react';
 
@@ -35,6 +37,18 @@ const App: React.FC = () => {
         return (
           <UsageGuard>
             <CarLoanCalculator onBack={() => setCurrentView(View.HOME)} />
+          </UsageGuard>
+        );
+      case View.CASH_LOAN:
+        return (
+          <UsageGuard>
+            <CashLoanCalculator onBack={() => setCurrentView(View.HOME)} />
+          </UsageGuard>
+        );
+      case View.CONSOLIDATION:
+        return (
+          <UsageGuard>
+            <ConsolidationCalculator onBack={() => setCurrentView(View.HOME)} />
           </UsageGuard>
         );
       default:
